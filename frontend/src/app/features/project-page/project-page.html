@@ -1,0 +1,120 @@
+<app-invite-dialog [projectId]="this.projectId" [(isOpen)]="this.isInviteDialogOpen"
+    (onSuccess)="this.projectMembers.refetch()" />
+
+<app-task-detail-dialog [currentRole]="this.currentRole()" [projectId]="this.projectId" [taskId]="this.taskDetailDialogTaskId()" [isOpen]="this.isTaskDetailDialogOpen"
+    (isOpenChange)="$event ? null : this.hideTaskDetailDiaog()" 
+     (onSuccess)="this.tasks.refetch()" />
+
+<app-new-task-dialog [projectId]="this.projectId" [(isOpen)]="this.isNewTaskDialogOpen"
+    (onSuccess)="this.handleNewTaskSuccess($event)" />
+
+@if(this.isPending()){
+<div class="h-full w-full center">
+    <p-progress-spinner ariaLabel="loading" class="size-14" strokeWidth="6" />
+</div>
+}@else {
+<div class="container mx-auto px-4 grid grid-cols-12 gap-6 py-6 animate-fadein animate-duration-500">
+
+    <div class="col-span-6 app-card">
+
+        <div class="rflex">
+            <div class="text-xl font-bold flex-1">{{this.data.project?.name}}</div>
+            <app-role-tag [role]="this.currentMembership()?.role" />
+        </div>
+
+        <p class="flex-1 p-card-content">{{this.data.project?.description}} </p>
+
+        <div class="rflex gap-4">
+            <div class="text-sm text-gray-700">Débuté le {{ this.data.project?.startDate | date:'shortDate' }}</div>
+            <div class="text-sm text-gray-700">Créé le {{ this.data.project?.createdAt | date:'shortDate' }}</div>
+        </div>
+    </div>
+
+
+    <div class="col-span-6 app-card">
+
+        <div class="rflex align-top mb-4">
+            <div class="text-xl font-bold flex-1">Membres</div>
+            <div>
+                <p-button (onClick)="this.showInviteDialog()" label="Inviter" icon="pi pi-plus" size="small"  [disabled]="!this.auth.checkAllowed(this.currentRole(), 'ADMIN')"/>
+            </div>
+        </div>
+
+        <table>
+            <tbody>@for (membership of this.data.memberships; track membership.id) {
+                <tr>
+                    <td class=""><app-user-chip [username]="membership.username"
+                            [self]="this.isCurrentUser(membership.userId)"></app-user-chip></td>
+                    <td class="text-sm">@if(membership.userId === membership.invitedById){Créateur}
+                        @else{Invité le {{membership.invitedAt |
+                        date:'shortDate'}} par
+                        <span class="capitalize">{{membership.invitedByUsername}}</span>}
+                    </td>
+
+                    <td class="text-xs text-right"><app-role-tag [role]="membership.role"></app-role-tag>
+                </tr>
+                @if(!$last){<tr>
+                    <td colspan="8"><p-divider class="my-2" /></td>
+                </tr>}
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-span-3 h-full">
+        <h2 class="text-xl">A faire</h2>
+
+        <div class="flex">
+            <div class="vflex gap-4">
+                <button type="button" (click)="this.isNewTaskDialogOpen.set(true)" class="app-card app-card-draft" [disabled]="!this.auth.checkAllowed(this.currentRole(), 'ADMIN', 'MEMBER')">
+                    <div class="text-center space-y-2">
+                        <i class="pi pi-plus text-3xl text-gray-500"></i>
+                        <div class="p-card-title m-0">Créer une nouvelle tâche</div>
+                    </div>
+                </button>
+                @for (task of this.tasksGroups().todo; track task.id) {
+                <app-task-card [task]="task" (click)="this.showTaskDetailDialog(task.id!)" />
+                }
+            </div>
+            <p-divider layout="vertical" class="-mr-2"></p-divider>
+        </div>
+    </div>
+
+    <div class="col-span-3">
+        <h2 class="text-xl">Bloqué</h2>
+        <div class="flex h-full">
+            <div class="vflex gap-4 flex-1">
+                @for (task of this.tasksGroups().blocked; track task.id) {
+                <app-task-card [task]="task" (click)="this.showTaskDetailDialog(task.id!)" />
+                }
+            </div>
+            <p-divider layout="vertical" class="-mr-2"></p-divider>
+        </div>
+    </div>
+
+    <div class="col-span-3">
+        <h2 class="text-xl">En cours</h2>
+        <div class="flex h-full">
+            <div class="vflex gap-4 flex-1">
+                @for (task of this.tasksGroups().inProgress; track task.id) {
+                <app-task-card [task]="task" (click)="this.showTaskDetailDialog(task.id!)" />
+                }
+            </div>
+            <p-divider layout="vertical" class="-mr-2"></p-divider>
+        </div>
+    </div>
+
+    <div class="col-span-3">
+        <h2 class="text-xl">Terminé</h2>
+        <div class="flex h-full">
+            <div class="vflex gap-4 flex-1">
+                @for (task of this.tasksGroups().done; track task.id) {
+                <app-task-card [task]="task" (click)="this.showTaskDetailDialog(task.id!)" />
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+}

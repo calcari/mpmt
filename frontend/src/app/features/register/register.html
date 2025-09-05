@@ -1,0 +1,76 @@
+<form #formRef="ngForm" (ngSubmit)="handleSubmit(formRef)" class="max-w-sm mx-auto p-4 space-y-4" novalidate>
+
+    <h1 class="text-3xl font-semibold">Inscription</h1>
+
+    <div class="space-y-1">
+        <label for="username">Nom d'utilisateur</label>
+        <input pInputText inputId="username" name="username" type="text" required minlength="5" maxlength="50"
+            autocomplete="name" class="w-full" [(ngModel)]="model.username" #usernameRef="ngModel" />
+        @if (usernameRef.invalid && (usernameRef.touched || formRef.submitted)) {
+        @if (usernameRef.errors?.['required']) {
+        <p-message severity="error" size="small" variant="simple">Nom d'utilisateur requis</p-message>
+        }
+        @if (usernameRef.errors?.['minLength']) {
+        <p-message severity="error" size="small" variant="simple">Nom d'utilisateur invalide</p-message>
+        }
+        }
+    </div>
+
+
+    <div class="space-y-1">
+        <label for="email">Email</label>
+        <input pInputText inputId="email" name="email" type="email" required email autocomplete="em" class="w-full"
+            [(ngModel)]="model.email" #emailRef="ngModel" />
+        @if (emailRef.invalid && (emailRef.touched || formRef.submitted)) {
+        @if (emailRef.errors?.['required']) {
+        <p-message severity="error" size="small" variant="simple">Email requis</p-message>
+        }
+        @if (emailRef.errors?.['email']) {
+        <p-message severity="error" size="small" variant="simple">Format d'email invalide</p-message>
+        }
+        }
+    </div>
+
+
+    <div class="space-y-1">
+        <label for="password">Mot de passe</label>
+        <p-password inputId="password" name="password" [feedback]="true" toggleMask required autocomplete="new-password"
+            [(ngModel)]="model.password" #passwordRef="ngModel" class="w-full" inputStyleClass="w-full"></p-password>
+        @if (passwordRef.invalid && (passwordRef.touched || formRef.submitted)) {
+        @if (passwordRef.errors?.['required']) {
+        <p-message severity="error" size="small" variant="simple">Mot de passe requis</p-message>
+        }
+        }
+    </div>
+
+    <div class="space-y-1">
+        <label for="password-confirm">Confirmation du mot de passe</label>
+        <p-password inputId="password-confirm" name="password-confirm" [feedback]="false" toggleMask required
+            autocomplete="new-password" [(ngModel)]="model.passwordConfirm"
+            (ngModelChange)="this.passwordConfirmMismatch.set(this.model.password !== $event)"
+            #passwordConfirmRef="ngModel" class="w-full" inputStyleClass="w-full"></p-password>
+        @if ((passwordConfirmRef.touched || formRef.submitted)) {
+        @if (passwordConfirmRef.errors?.['required']) {
+        <p-message severity="error" size="small" variant="simple">Requis</p-message>
+        }
+        @if (this.passwordConfirmMismatch() && passwordConfirmRef.touched) {
+        <p-message severity="error" size="small" variant="simple">Ne correspond pas</p-message>
+        }
+        }
+    </div>
+
+    <div class="space-y-1">
+
+        <p-button type="submit" label="Se connecter" class="w-full" [loading]="this.loading()"
+            [disabled]="formRef.invalid || this.passwordConfirmMismatch()"></p-button>
+
+        @if (registerError()) {
+        <p-message severity="error" size="small" variant="simple" aria-live="polite">
+            {{registerError()}}
+        </p-message>
+        }
+    </div>
+    <div class="text-md">
+        <p>Déjà inscrit ? <p-button link routerLink="/login" label="Me connecter" class="text-sm" /></p>
+    </div>
+</form>

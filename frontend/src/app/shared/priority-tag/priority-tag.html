@@ -1,0 +1,6 @@
+@switch (this.priority) {
+@case ('URGENT') { <p-tag [class]="['text-xs',this.class]" severity="danger" value="Prio: Urgent" /> }
+@case ('HIGH') { <p-tag [class]="['text-xs',this.class]" severity="warn" value="Prio: Haute" /> }
+@case ('MEDIUM') { <p-tag [class]="['text-xs',this.class]" severity="info" value="Prio: Moyenne"/> }
+@case ('LOW') { <p-tag [class]="['text-xs',this.class]" severity="secondary" value="Prio: Basse"/> }
+}

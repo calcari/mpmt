@@ -1,0 +1,31 @@
+name: Déploiement MPMT
+
+on:
+  push:
+    branches: [ prod, test ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Récupérer le code
+      run: git clone https://github.com/calcari/mpmt.git .
+    
+    - name: Login GitHub
+      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u calcari --password-stdin
+    
+    - name: Build des images
+      run: docker compose build
+    
+    - name: Tag et push backend
+      run: |
+        docker tag mpmt-backend ghcr.io/calcari/mpmt/mpmt-backend:latest
+        docker push ghcr.io/calcari/mpmt/mpmt-backend:latest
+    
+    - name: Tag et push frontend
+      run: |
+        docker tag mpmt-frontend ghcr.io/calcari/mpmt/mpmt-frontend:latest
+        docker push ghcr.io/calcari/mpmt/mpmt-frontend:latest
+
+# Il manquerait une etape où on pull les images sur un vrai serveur de prod et on fait un docker compose up

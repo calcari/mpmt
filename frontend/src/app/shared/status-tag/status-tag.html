@@ -1,0 +1,6 @@
+@switch (this.status) {
+@case('TODO') { <p-tag [class]="['text-xs',this.class]" severity="warn" value="À faire" /> }
+@case ('DONE') { <p-tag [class]="['text-xs',this.class]" severity="success" value="Terminé" /> }
+@case ('DOING') { <p-tag [class]="['text-xs',this.class]" severity="info" value="En cours" /> }
+@case ('BLOCKED') { <p-tag [class]="['text-xs',this.class]" severity="danger" value="Bloqué" /> }
+}

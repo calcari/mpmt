@@ -1,0 +1,11 @@
+/* :host, mat-sidenav-container, mat-sidenav {
+    height: 100vh;
+    height: 100dvh;
+} */
+
+.content-scroll {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}

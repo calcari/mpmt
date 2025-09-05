@@ -1,0 +1,11 @@
+@switch (this.role) {
+@case ("ADMIN") {
+<p-tag [class]="['text-xs',this.class]" severity="info" value="Admin" />
+}
+@case ("MEMBER") {
+<p-tag [class]="['text-xs',this.class]" severity="primary" value="Membre" />
+}
+@case ("VIEWER") {
+<p-tag [class]="['text-xs',this.class]" severity="secondary" value="Invité" />
+}
+}

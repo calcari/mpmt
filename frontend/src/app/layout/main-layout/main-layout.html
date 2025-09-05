@@ -1,0 +1,15 @@
+<div class="screen-shell">
+    <app-drawer [(isOpen)]="this.drawerOpen"></app-drawer>
+
+    <header class="h-12 flex items-center gap-3 px-3 border-b border-zinc-200 bg-white">
+        <!-- @if (!drawerRef.drawer.visible){ <p-button (click)="drawerRef.drawer.show()" icon="pi pi-bars" />} -->
+        <p-button (click)="this.toggleDrawer()" icon="pi pi-bars text-xl " text aria-label="menu" />
+        <div class="spacer"></div>
+        <app-logo />
+    </header>
+
+
+    <main class="content-scroll">
+        <router-outlet/>
+    </main>
+</div>

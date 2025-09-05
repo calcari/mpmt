@@ -1,0 +1,43 @@
+<div class="container mx-auto p-4 gap-4 vflex h-full">
+    <h1 class="text-4xl">Mes projets</h1>
+
+    @switch (this.projects.status()) {
+    @case ('pending') {
+    <div class="flex-1 center">
+        <p-progress-spinner ariaLabel="loading" class="size-14" strokeWidth="6" />
+    </div>
+    }
+    @case ('error') {
+    <pre>{{this.projects.error() | json}}</pre>
+    }
+    <!-- also status === 'success', but "else" logic works, too -->
+    @case('success') {
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 animate-fadein animate-duration-500">
+        @for(project of this.projects.data(); track project.id){
+        <a [routerLink]="['/projects', project.id]" class="app-card app-card-clickable">
+            <div class="rflex">
+                <div class="text-xl font-bold flex-1">{{project.name}}</div>
+                <app-role-tag [role]="project.membership?.role" />
+            </div>
+
+            <p class="flex-1 p-card-content">{{project.description}} </p>
+
+            <div class="rflex gap-4">
+                <div class="text-sm text-gray-700">Débuté le {{ project!.startDate | date:'shortDate' }}</div>
+                <div class="text-sm text-gray-700">Créé le {{ project!.createdAt | date:'shortDate' }}</div>
+            </div>
+        </a>
+        }
+        <button type="button" (click)="this.showNewProjectDialog()" class="app-card app-card-draft">
+            <div class="text-center space-y-2">
+                <i class="pi pi-plus text-3xl text-gray-500"></i>
+                <div class="p-card-title m-0">Créer un nouveau projet</div>
+            </div>
+        </button>
+    </div>
+    }
+    }
+
+</div>
+
+<app-new-project-dialog [(isOpen)]="this.isNewProjectDialogOpen" (onSuccess)="this.projects.refetch()" />

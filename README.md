@@ -1,6 +1,7 @@
 # MPMT - Application de Gestion de Projet - Franck Calcari
 ![Logo](livrables-etude-de-cas/captures-ecran/mpmt-logo.png)
 
+### Demo : [https://mpmt.calcari.dev](https://mpmt.calcari.dev)
 # A l'attention du correcteur
 
 ## Installation et vérification du projet
@@ -10,6 +11,7 @@
 
 ```
 git clone https://github.com/calcari/mpmt.git
+
 cd mpmt
 ```
 
@@ -20,11 +22,15 @@ cd mpmt
 docker compose -f docker-compose.prod.yml up
 ```
 <br>
-3. L'application est disponible :
+3. L'application est ensuite disponible :
 
 - Frontend : http://localhost:8055
 - Backend : http://localhost:8066
 - DB : http://localhost:8077
+
+Ou sur la démo mpmt.calcari.dev
+
+>L'envoi d'email a lieu via un service tiers (MailDiver) qui pourrait refuser l'envoi en raison de leurs quotas.
 
 
 ## Captures d'écran (non exhaustif)
@@ -46,7 +52,7 @@ docker compose -f docker-compose.prod.yml up
 
 # Scripts de base de donnée
 Un export de la base postgres de demo est disponible dans [database_dump.sql](./livrables-etude-de-cas/database_dump.sql)
-Ca n'a pas grand intérêt car Spring génère automatiquement les tables (LDD) et les données de tests sont automatiquement ajoutées. 
+Ca n'a pas grand intérêt car Spring génère automatiquement les tables (DDL) et les données de tests sont automatiquement ajoutées. 
 
 # Readme documentation
 👉 Voir [le vrai readme](./usage.md) pour les commandes de base.

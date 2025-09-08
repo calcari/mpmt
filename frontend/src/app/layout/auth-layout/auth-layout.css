@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+app-logo i {
+  font-size: 300px;
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProjectController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">com.codesolutions.backend.controllers</a> &gt; <span class="el_source">ProjectController.java</span></div><h1>ProjectController.java</h1><pre class="source lang-java linenums">package com.codesolutions.backend.controllers;
+
+import com.codesolutions.backend.dto.*;
+import com.codesolutions.backend.enums.ProjectRole;
+import com.codesolutions.backend.services.ProjectService;
+import com.codesolutions.backend.services.UserService;
+import com.codesolutions.backend.utils.BusinessErrorEnum;
+import com.codesolutions.backend.utils.BusinessResponseStatusException;
+
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import org.springframework.web.server.ResponseStatusException;
+
+
+@RestController
+@RequestMapping(&quot;/api/projects&quot;)
+@RequiredArgsConstructor
+@CrossOrigin( originPatterns = {&quot;https://*.${DOMAIN_NAME:mpmt.com}&quot;, &quot;http://localhost:*&quot;}, allowCredentials = &quot;true&quot;)
+public class ProjectController {
+    
+    private final ProjectService projectService;
+    private final UserService userService;
+
+    
+    @GetMapping(&quot;/me&quot;)
+    public List&lt;ProjectOfUserDTO&gt; getUserProjects(@RequestAttribute Long userId) {
+<span class="fc" id="L32">        return projectService.getUserProjects(userId);</span>
+    }
+
+    @PostMapping
+    public ProjectCoreDTO createProject(@RequestBody ProjectCreateDTO projectDTO,
+                                        @RequestAttribute Long userId) {
+        /*
+         * On peut faire plusieurs appels à findById (ici ou dans les services ...) sans que ça duplique les appels à la db.
+         * Spring cache les appels simples (repository.findById) au niveau de l'ORM (il y a un contexte partagé pour chaque requète HTTP).
+         * */
+<span class="fc" id="L42">       userService.findById(userId).orElseThrow();</span>
+
+<span class="fc" id="L44">        return projectService.createProject(projectDTO, userId);</span>
+    }
+
+    @GetMapping(&quot;/{projectId}&quot;)
+    public ProjectWithTasksDTO getProject(@PathVariable Long projectId, 
+                                       @RequestAttribute Long userId) {
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (!projectService.isUserProjectMember(projectId, userId)) {</span>
+<span class="fc" id="L51">            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, &quot;L'utilisateur n'est pas membre de ce projet&quot;);</span>
+        }
+        
+<span class="fc" id="L54">        return projectService.getProjectWithTasks(projectId)</span>
+<span class="pc" id="L55">                .orElseThrow(() -&gt; new RuntimeException(&quot;Projet non trouvé&quot;));</span>
+    }
+    
+    @PostMapping(&quot;/{projectId}/members&quot;)
+    public ProjectMembershipCoreDTO addMemberToProject(@PathVariable Long projectId,
+                                                       @RequestBody ProjectMembershipCreateDTO memberDTO,
+                                                       @RequestAttribute(name=&quot;userId&quot;) Long inviterId) {
+
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        if(!projectService.isOperationAllowed(projectId, inviterId, ProjectRole.ADMIN)){</span>
+<span class="fc" id="L64">            throw new BusinessResponseStatusException(BusinessErrorEnum.MISSING_RIGHTS, HttpStatus.UNAUTHORIZED, &quot;Seuls les administrateurs du projet peuvent ajouter des membres.&quot;);</span>
+        }
+        
+<span class="fc" id="L67">        memberDTO.setProjectId(projectId);</span>
+<span class="fc" id="L68">        return projectService.addMemberToProject(memberDTO, inviterId);</span>
+    }
+    
+    @GetMapping(&quot;/{projectId}/members&quot;)
+    public List&lt;ProjectMembershipCoreDTO&gt; getProjectMembers(@PathVariable Long projectId,
+                                                            @RequestAttribute Long userId) {
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        if (!projectService.isUserProjectMember(projectId, userId)) {</span>
+<span class="fc" id="L75">            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, &quot;L'utilisateur n'est pas membre de ce projet&quot;);</span>
+        }
+        
+<span class="fc" id="L78">        return projectService.getProjectMembers(projectId);</span>
+    }
+} 
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -1,0 +1,16 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.scss": "tailwindcss",
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "\\b\\w+Class\\b\\s*=\\s*\"([^\"]*)\"", // fooClass="..."
+    "\\b\\w+Class\\b\\s*=\\s*'([^']*)'", // barClass='...'
+    "\\[\\w+Class\\]\\s*=\\s*\"'([^']*)'\"", // [bazClass]="'...'"
+    "\\[\\w+Class\\]\\s*=\\s*'\"([^\"]*)\"'" // [quxClass]='"..."'
+  ],
+  "search.exclude": {
+    "**/.angular/**": true,
+    "**/pnpm-lock.yaml": true,
+  }
+}

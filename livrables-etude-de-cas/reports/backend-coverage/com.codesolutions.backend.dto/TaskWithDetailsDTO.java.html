@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaskWithDetailsDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">com.codesolutions.backend.dto</a> &gt; <span class="el_source">TaskWithDetailsDTO.java</span></div><h1>TaskWithDetailsDTO.java</h1><pre class="source lang-java linenums">package com.codesolutions.backend.dto;
+
+import com.codesolutions.backend.entities.Task;
+import com.codesolutions.backend.enums.TaskPriority;
+import com.codesolutions.backend.enums.TaskStatus;
+import lombok.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class TaskWithDetailsDTO extends TaskCoreDTO {
+    private List&lt;TaskAssignationDTO&gt; assignations;
+    private List&lt;TaskHistoryEntryDTO&gt; history;
+
+    public TaskWithDetailsDTO(Long id, String name, String description, LocalDate dueDate, LocalDate completedDate, TaskStatus status, TaskPriority priority, Long projectId, Long createdById, String createdByUsername, LocalDateTime createdAt, LocalDateTime updatedAt, List&lt;TaskAssignationDTO&gt; assignations, List&lt;TaskHistoryEntryDTO&gt; history) {
+<span class="fc" id="L19">        super(id, name, description, dueDate, completedDate, status, priority, projectId, createdById, createdByUsername, createdAt, updatedAt);</span>
+<span class="fc" id="L20">        this.assignations = assignations;</span>
+<span class="fc" id="L21">        this.history = history;</span>
+<span class="fc" id="L22">    }</span>
+
+    public static TaskWithDetailsDTO fromEntity(Task task) {
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">        if (task == null) return null;</span>
+        
+<span class="fc" id="L27">        List&lt;TaskAssignationDTO&gt; assignations = null;</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (task.getAssignations() != null) {</span>
+<span class="fc" id="L29">            assignations = task.getAssignations().stream()</span>
+<span class="fc" id="L30">                    .map(TaskAssignationDTO::fromEntity)</span>
+<span class="fc" id="L31">                    .toList();</span>
+        }
+        
+<span class="fc" id="L34">        List&lt;TaskHistoryEntryDTO&gt; history = null;</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (task.getHistory() != null) {</span>
+<span class="fc" id="L36">            history = task.getHistory().stream()</span>
+<span class="fc" id="L37">                    .map(TaskHistoryEntryDTO::fromEntity)</span>
+<span class="fc" id="L38">                    .toList();</span>
+        }
+        
+<span class="fc" id="L41">        return new TaskWithDetailsDTO(</span>
+<span class="fc" id="L42">                task.getId(),</span>
+<span class="fc" id="L43">                task.getName(),</span>
+<span class="fc" id="L44">                task.getDescription(),</span>
+<span class="fc" id="L45">                task.getDueDate(),</span>
+<span class="fc" id="L46">                task.getCompletedDate(),</span>
+<span class="fc" id="L47">                task.getStatus(),</span>
+<span class="fc" id="L48">                task.getPriority(),</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">                task.getProject() != null ? task.getProject().getId() : null,</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">                task.getCreatedBy() != null ? task.getCreatedBy().getId() : null,</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">                task.getCreatedBy() != null ? task.getCreatedBy().getUsername() : null,</span>
+<span class="fc" id="L52">                task.getCreatedAt(),</span>
+<span class="fc" id="L53">                task.getUpdatedAt(),</span>
+                assignations,
+                history
+        );
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

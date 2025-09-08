@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaskService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">com.codesolutions.backend.services</a> &gt; <span class="el_source">TaskService.java</span></div><h1>TaskService.java</h1><pre class="source lang-java linenums">package com.codesolutions.backend.services;
+
+import com.codesolutions.backend.dto.TaskCoreDTO;
+import com.codesolutions.backend.dto.TaskCreateDTO;
+import com.codesolutions.backend.dto.TaskUpdateDTO;
+import com.codesolutions.backend.dto.TaskWithDetailsDTO;
+import com.codesolutions.backend.dto.TaskHistoryEntryDTO;
+import com.codesolutions.backend.dto.TaskAssignationDTO;
+import com.codesolutions.backend.entities.*;
+import com.codesolutions.backend.enums.ProjectRole;
+import com.codesolutions.backend.repositories.*;
+import com.codesolutions.backend.utils.BusinessErrorEnum;
+import com.codesolutions.backend.utils.BusinessResponseStatusException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+@Service
+@RequiredArgsConstructor
+public class TaskService implements ITaskService {
+    
+    private final TaskRepository taskRepository;
+    private final TaskAssignationRepository taskAssignationRepository;
+    private final TaskHistoryEntryRepository taskHistoryEntryRepository;
+    private final ProjectRepository projectRepository;
+
+    private final ProjectService projectService;
+    private final UserRepository userRepository;
+    private final NotificationService notificationService;
+    
+    public TaskCoreDTO createTask(TaskCreateDTO taskDTO, Long projectId, Long creatorId) {
+
+        //Récupération des entités
+<span class="fc" id="L40">        Project project = projectService.getProjectById(projectId).orElseThrow();</span>
+<span class="fc" id="L41">        User creator = userRepository.findById(creatorId).orElseThrow();</span>
+
+        //Vérifications
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if(!projectService.isOperationAllowed(projectId, creatorId, ProjectRole.ADMIN, ProjectRole.MEMBER)){</span>
+<span class="fc" id="L45">            throw new BusinessResponseStatusException(BusinessErrorEnum.MISSING_RIGHTS, HttpStatus.UNAUTHORIZED, &quot;Seuls les membres ou administrateurs du projet peuvent ajouter des tâches.&quot;);</span>
+        }
+
+
+<span class="fc" id="L49">        Task task = new Task();</span>
+<span class="fc" id="L50">        task.setName(taskDTO.getName());</span>
+<span class="fc" id="L51">        task.setDescription(taskDTO.getDescription());</span>
+<span class="fc" id="L52">        task.setDueDate(taskDTO.getDueDate());</span>
+<span class="fc" id="L53">        task.setStatus(taskDTO.getStatus());</span>
+<span class="fc" id="L54">        task.setPriority(taskDTO.getPriority());</span>
+<span class="fc" id="L55">        task.setProject(project);</span>
+<span class="fc" id="L56">        task.setCreatedBy(creator);</span>
+        
+<span class="fc" id="L58">        task = taskRepository.save(task);</span>
+        
+        // Create history entry
+<span class="fc" id="L61">        TaskHistoryEntry history = new TaskHistoryEntry();</span>
+<span class="fc" id="L62">        history.setTask(task);</span>
+<span class="fc" id="L63">        history.setChangedBy(creator);</span>
+<span class="fc" id="L64">        history.setNewValue(&quot;Task created&quot;);</span>
+<span class="fc" id="L65">        history.setChangedAt(LocalDateTime.now());</span>
+        
+<span class="fc" id="L67">        taskHistoryEntryRepository.save(history);</span>
+        
+<span class="fc" id="L69">        return TaskCoreDTO.fromEntity(task);</span>
+    }
+    
+    public List&lt;TaskCoreDTO&gt; getProjectTasks(Long projectId) {
+<span class="fc" id="L73">        List&lt;Task&gt; tasks = taskRepository.findByProjectId(projectId);</span>
+<span class="fc" id="L74">        return tasks.stream()</span>
+<span class="fc" id="L75">                .map(TaskCoreDTO::fromEntity)</span>
+<span class="fc" id="L76">                .toList();</span>
+    }
+
+    public Optional&lt;TaskWithDetailsDTO&gt; getTaskWithDetails(Long taskId) {
+
+<span class="fc" id="L81">        var task = taskRepository.findById(taskId);</span>
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">        if(task.isEmpty()) return Optional.empty();</span>
+<span class="fc" id="L83">        var history = taskHistoryEntryRepository.findByTaskId(taskId);</span>
+<span class="fc" id="L84">        var assignations = taskAssignationRepository.findByTaskId(taskId);</span>
+<span class="fc" id="L85">        task.get().setAssignations(assignations);</span>
+<span class="fc" id="L86">        task.get().setHistory(history);</span>
+<span class="fc" id="L87">        return Optional.of(TaskWithDetailsDTO.fromEntity(task.get()));</span>
+    }
+    
+    public TaskCoreDTO updateTask(Long taskId, TaskUpdateDTO taskDTO, Long updaterId) {
+
+        // Récupération entités
+<span class="fc" id="L93">        Task task = taskRepository.findById(taskId).orElseThrow();</span>
+<span class="fc" id="L94">        User updater = userRepository.findById(updaterId).orElseThrow();</span>
+
+        // Vérifications
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        if(!projectService.isOperationAllowed(task.getProject().getId(), updaterId, ProjectRole.ADMIN, ProjectRole.MEMBER)){</span>
+<span class="fc" id="L98">            throw new BusinessResponseStatusException(BusinessErrorEnum.MISSING_RIGHTS, HttpStatus.UNAUTHORIZED, &quot;Seuls les membres ou administrateurs du projet peuvent modifier des tâches.&quot;);</span>
+        }
+
+        //Création des history entries
+<span class="fc" id="L102">        var entries = Stream.of(</span>
+<span class="fc" id="L103">                this.buildHistoryEntry(task, updater, &quot;Titre&quot;, task.getName(), taskDTO.getName()),</span>
+<span class="fc" id="L104">                this.buildHistoryEntry(task, updater, &quot;Description&quot;, task.getDescription(), taskDTO.getDescription()),</span>
+<span class="fc" id="L105">                this.buildHistoryEntry(task, updater, &quot;Echeance&quot;, Objects.toString(task.getDueDate(),&quot;null&quot;),Objects.toString(taskDTO.getDueDate(),&quot;null&quot;)),</span>
+<span class="fc" id="L106">                this.buildHistoryEntry(task, updater, &quot;Réalisation&quot;, Objects.toString(task.getCompletedDate(),&quot;null&quot;), Objects.toString(taskDTO.getCompletedDate(),&quot;null&quot;)),</span>
+<span class="fc" id="L107">                this.buildHistoryEntry(task, updater, &quot;Priorité&quot;, Objects.toString(task.getPriority(),&quot;null&quot;), Objects.toString(taskDTO.getPriority(),&quot;null&quot;)),</span>
+<span class="fc" id="L108">                this.buildHistoryEntry(task, updater, &quot;Statut&quot;, Objects.toString(task.getStatus(),&quot;null&quot;), Objects.toString(taskDTO.getStatus(),&quot;null&quot;))</span>
+<span class="fc" id="L109">        ).filter(Optional::isPresent).map(Optional::get);</span>
+
+
+        //Modification de la task
+<span class="fc" id="L113">        task.setName(taskDTO.getName());</span>
+<span class="fc" id="L114">        task.setDescription(taskDTO.getDescription());</span>
+<span class="fc" id="L115">        task.setDueDate(taskDTO.getDueDate());</span>
+<span class="fc" id="L116">        task.setStatus(taskDTO.getStatus());</span>
+<span class="fc" id="L117">        task.setPriority(taskDTO.getPriority());</span>
+<span class="fc" id="L118">        task.setCompletedDate(taskDTO.getCompletedDate());</span>
+
+        //Sauvegarde des entities
+<span class="fc" id="L121">        entries.forEach(taskHistoryEntryRepository::save);</span>
+<span class="fc" id="L122">        task = taskRepository.save(task);</span>
+<span class="fc" id="L123">        return TaskCoreDTO.fromEntity(task);</span>
+    }
+
+    private Optional&lt;TaskHistoryEntry&gt; buildHistoryEntry(Task task, User updater, String fieldName, String oldValue, String newValue){
+<span class="fc bfc" id="L127" title="All 2 branches covered.">        if(oldValue.equals(newValue))return Optional.empty();</span>
+
+<span class="fc" id="L129">        TaskHistoryEntry historyEntry = new TaskHistoryEntry();</span>
+<span class="fc" id="L130">        historyEntry.setTask(task);</span>
+<span class="fc" id="L131">        historyEntry.setChangedBy(updater);</span>
+<span class="fc" id="L132">        historyEntry.setField(fieldName);</span>
+<span class="fc" id="L133">        historyEntry.setOldValue(oldValue);</span>
+<span class="fc" id="L134">        historyEntry.setNewValue(newValue);</span>
+
+<span class="fc" id="L136">        return Optional.of(historyEntry);</span>
+    }
+
+    
+    public TaskAssignationDTO assignTaskToUser(Long taskId, Long assigneeId, Long assignerId) {
+
+        //Récupération des entités
+<span class="fc" id="L143">        Task task = taskRepository.findById(taskId).orElseThrow();</span>
+<span class="fc" id="L144">        Project project = projectRepository.findById(task.getProject().getId()).orElseThrow();</span>
+<span class="fc" id="L145">        User assignee = userRepository.findById(assigneeId).orElseThrow();</span>
+<span class="fc" id="L146">        User assigner = userRepository.findById(assignerId).orElseThrow();</span>
+<span class="fc" id="L147">        var assignations = taskAssignationRepository.findByTaskId(taskId);</span>
+
+
+        //Vérifications
+<span class="fc bfc" id="L151" title="All 2 branches covered.">        if(!projectService.isOperationAllowed(project.getId(), assignerId, ProjectRole.ADMIN, ProjectRole.MEMBER)){</span>
+<span class="fc" id="L152">            throw new BusinessResponseStatusException(BusinessErrorEnum.MISSING_RIGHTS, HttpStatus.UNAUTHORIZED, &quot;Seuls les membres ou administrateurs du projet peuvent assigner des tâches.&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L155" title="All 2 branches covered.">        if (!projectService.isUserProjectMember(project.getId(), assigneeId)) {</span>
+<span class="fc" id="L156">            throw new BusinessResponseStatusException(BusinessErrorEnum.ASSIGNEE_NOT_MEMBER, HttpStatus.BAD_REQUEST, &quot;L'assigné n'est pas membre de ce projet.&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L159" title="All 2 branches covered.">        if (assignations.stream().anyMatch(x -&gt; assignee.getId().equals(x.getUser().getId()))) {</span>
+<span class="fc" id="L160">            throw new BusinessResponseStatusException(BusinessErrorEnum.ASSIGNEE_ALREADY_ASSIGNED, HttpStatus.BAD_REQUEST, &quot;Cette tâche est déjà assignée à cet utilisateur.&quot;);</span>
+        }
+
+        //Assignation
+<span class="fc" id="L164">        TaskAssignation assignation = new TaskAssignation(task, assignee);</span>
+
+        // Envoi de l'email de notification
+<span class="fc" id="L167">        notificationService.sendTaskAssignationNotification(project, task, assignee, assigner);</span>
+
+        //Enregistrement
+<span class="fc" id="L170">        taskAssignationRepository.save(assignation);</span>
+
+<span class="fc" id="L172">        return TaskAssignationDTO.fromEntity(assignation);</span>
+    }
+} 
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

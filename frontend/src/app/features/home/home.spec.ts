@@ -1,0 +1,17 @@
+import { TestBed } from '@angular/core/testing';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { Home } from './home';
+
+describe('Home', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [Home]
+    }).compileComponents();
+  });
+
+  it('should create', () => {
+    const fixture = TestBed.createComponent(Home);
+    const component = fixture.componentInstance;
+    expect(component).toBeTruthy();
+  });
+});

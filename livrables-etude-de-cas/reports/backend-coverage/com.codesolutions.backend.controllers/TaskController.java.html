@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaskController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">com.codesolutions.backend.controllers</a> &gt; <span class="el_source">TaskController.java</span></div><h1>TaskController.java</h1><pre class="source lang-java linenums">package com.codesolutions.backend.controllers;
+
+import com.codesolutions.backend.dto.TaskCoreDTO;
+import com.codesolutions.backend.dto.TaskCreateDTO;
+import com.codesolutions.backend.dto.TaskUpdateDTO;
+import com.codesolutions.backend.dto.TaskWithDetailsDTO;
+import com.codesolutions.backend.dto.TaskAssignationDTO;
+import com.codesolutions.backend.services.TaskService;
+import com.codesolutions.backend.services.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/api/tasks&quot;)
+@RequiredArgsConstructor
+@CrossOrigin( originPatterns = {&quot;https://*.${DOMAIN_NAME:mpmt.com}&quot;, &quot;http://localhost:*&quot;}, allowCredentials = &quot;true&quot;)
+public class TaskController {
+    
+    private final TaskService taskService;
+    private final UserService userService;
+    
+    @PostMapping(&quot;/project/{projectId}&quot;)
+    public TaskCoreDTO createTask(@PathVariable Long projectId,
+                         @RequestBody TaskCreateDTO taskDTO,
+                         @RequestAttribute Long userId) {
+<span class="fc" id="L30">        userService.findById(userId)</span>
+<span class="pc" id="L31">                .orElseThrow(() -&gt; new RuntimeException(&quot;Utilisateur non trouvé&quot;));</span>
+        
+<span class="fc" id="L33">        return taskService.createTask(taskDTO, projectId, userId);</span>
+    }
+    
+    @GetMapping(&quot;/project/{projectId}&quot;)
+    public List&lt;TaskCoreDTO&gt; getProjectTasks(@PathVariable Long projectId,
+                                           @RequestAttribute Long userId) {
+<span class="fc" id="L39">        return taskService.getProjectTasks(projectId);</span>
+    }
+
+    
+    @GetMapping(&quot;/{taskId}/details&quot;)
+    public TaskWithDetailsDTO getTask(@PathVariable Long taskId,
+                                   @RequestAttribute Long userId) {
+<span class="fc" id="L46">        return taskService.getTaskWithDetails(taskId)</span>
+<span class="pc" id="L47">                .orElseThrow(() -&gt; new RuntimeException(&quot;Tâche non trouvée&quot;));</span>
+    }
+    
+    @PutMapping(&quot;/{taskId}&quot;)
+    public TaskCoreDTO updateTask(@PathVariable Long taskId,
+                         @RequestBody TaskUpdateDTO taskDTO,
+                         @RequestAttribute Long userId) {
+<span class="fc" id="L54">        userService.findById(userId)</span>
+<span class="pc" id="L55">                .orElseThrow(() -&gt; new RuntimeException(&quot;Utilisateur non trouvé&quot;));</span>
+        
+<span class="fc" id="L57">        return taskService.updateTask(taskId, taskDTO, userId);</span>
+    }
+
+    @PostMapping(&quot;/{taskId}/assign&quot;)
+    public TaskAssignationDTO assignTaskToUser(@PathVariable Long taskId,
+                                         @RequestParam Long assigneeId,
+                                         @RequestAttribute(name=&quot;userId&quot;) Long assignerId) {
+<span class="fc" id="L64">        return taskService.assignTaskToUser(taskId, assigneeId, assignerId);</span>
+    }
+
+} 
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

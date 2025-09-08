@@ -1,0 +1,513 @@
+{
+    "numTotalTestSuites": 46,
+    "numPassedTestSuites": 46,
+    "numFailedTestSuites": 0,
+    "numPendingTestSuites": 0,
+    "numTotalTests": 25,
+    "numPassedTests": 25,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0,
+    "snapshot": {
+        "added": 0,
+        "failure": false,
+        "filesAdded": 0,
+        "filesRemoved": 0,
+        "filesRemovedList": [],
+        "filesUnmatched": 0,
+        "filesUpdated": 0,
+        "matched": 0,
+        "total": 0,
+        "unchecked": 0,
+        "uncheckedKeysByFile": [],
+        "unmatched": 0,
+        "updated": 0,
+        "didUpdate": false
+    },
+    "startTime": 1757332877655,
+    "success": true,
+    "testResults": [
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "App"
+                    ],
+                    "fullName": "App should create the app",
+                    "status": "passed",
+                    "title": "should create the app",
+                    "duration": 108.95705799999996,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332911554,
+            "endTime": 1757332911662.957,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/app.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "authGuard"
+                    ],
+                    "fullName": "authGuard should be created",
+                    "status": "passed",
+                    "title": "should be created",
+                    "duration": 3.738922000004095,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332918587,
+            "endTime": 1757332918590.739,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/core/auth/auth-guard.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Auth"
+                    ],
+                    "fullName": "Auth should be created",
+                    "status": "passed",
+                    "title": "should be created",
+                    "duration": 24.19318100000237,
+                    "failureMessages": [],
+                    "meta": {}
+                },
+                {
+                    "ancestorTitles": [
+                        "Auth"
+                    ],
+                    "fullName": "Auth should return login state",
+                    "status": "passed",
+                    "title": "should return login state",
+                    "duration": 5.624411999997392,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332917889,
+            "endTime": 1757332917918.6245,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/core/auth/auth-service.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "ErrorPage"
+                    ],
+                    "fullName": "ErrorPage should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 101.8319349999947,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332906020,
+            "endTime": 1757332906121.832,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/error-page/error-page.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Home"
+                    ],
+                    "fullName": "Home should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 108.5411679999961,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332916415,
+            "endTime": 1757332916523.5413,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/home/home.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Login"
+                    ],
+                    "fullName": "Login should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 243.42870100000073,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332897324,
+            "endTime": 1757332897567.4287,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/login/login.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "NewProjectDialog"
+                    ],
+                    "fullName": "NewProjectDialog should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 159.83874500000093,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332902834,
+            "endTime": 1757332902993.8386,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/project-list/new-project-dialog.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "ProjectList"
+                    ],
+                    "fullName": "ProjectList should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 349.78691400000025,
+                    "failureMessages": [],
+                    "meta": {}
+                },
+                {
+                    "ancestorTitles": [
+                        "ProjectList"
+                    ],
+                    "fullName": "ProjectList should display projects",
+                    "status": "passed",
+                    "title": "should display projects",
+                    "duration": 381.4618109999974,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332886288,
+            "endTime": 1757332887019.462,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/project-list/project-list.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "AssignDialog"
+                    ],
+                    "fullName": "AssignDialog should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 193.46086400000058,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332899749,
+            "endTime": 1757332899942.461,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/project-page/assign-dialog.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "InviteDialog"
+                    ],
+                    "fullName": "InviteDialog should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 171.9826549999998,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332907603,
+            "endTime": 1757332907774.9827,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/project-page/invite-dialog.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "NewTaskDialog"
+                    ],
+                    "fullName": "NewTaskDialog should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 192.50843100000202,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332904603,
+            "endTime": 1757332904795.5085,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/project-page/new-task-dialog.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "ProjectPage"
+                    ],
+                    "fullName": "ProjectPage should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 637.635338,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332890241,
+            "endTime": 1757332890878.6353,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/project-page/project-page.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "TaskCard"
+                    ],
+                    "fullName": "TaskCard should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 134.657604,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332909105,
+            "endTime": 1757332909239.6577,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/project-page/task-card.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "TaskDetailDialog"
+                    ],
+                    "fullName": "TaskDetailDialog should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 202.6766740000021,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332893134,
+            "endTime": 1757332893336.6768,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/project-page/task-detail-dialog.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Register"
+                    ],
+                    "fullName": "Register should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 181.358189999999,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332901319,
+            "endTime": 1757332901500.3582,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/features/register/register.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "AuthLayout"
+                    ],
+                    "fullName": "AuthLayout should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 103.6480040000024,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332910262,
+            "endTime": 1757332910365.648,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/layout/auth-layout/auth-layout.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Drawer"
+                    ],
+                    "fullName": "Drawer should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 226.58635600000343,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332894678,
+            "endTime": 1757332894904.5864,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/layout/drawer/drawer.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "MainLayout"
+                    ],
+                    "fullName": "MainLayout should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 168.32362300000023,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332895915,
+            "endTime": 1757332896083.3237,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/layout/main-layout/main-layout.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Logo"
+                    ],
+                    "fullName": "Logo should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 102.48837400000048,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332917183,
+            "endTime": 1757332917285.4883,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/shared/logo/logo.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "PriorityTag"
+                    ],
+                    "fullName": "PriorityTag should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 102.63821199999802,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332908381,
+            "endTime": 1757332908483.6382,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/shared/priority-tag/priority-tag.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "RoleTag"
+                    ],
+                    "fullName": "RoleTag should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 137.9173529999971,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332914178,
+            "endTime": 1757332914315.9172,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/shared/role-tag/role-tag.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "StatusTag"
+                    ],
+                    "fullName": "StatusTag should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 79.03110800000286,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332912333,
+            "endTime": 1757332912412.031,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/shared/status-tag/status-tag.spec.ts"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "AssigneeChipComponent"
+                    ],
+                    "fullName": "AssigneeChipComponent should create",
+                    "status": "passed",
+                    "title": "should create",
+                    "duration": 119.35517100000288,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1757332913421,
+            "endTime": 1757332913540.3552,
+            "status": "passed",
+            "message": "",
+            "name": "/home/dev1/mpmt/frontend/src/app/shared/user-chip/user-chip.spec.ts"
+        }
+    ]
+}

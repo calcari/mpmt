@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - BackendApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>BackendApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.codesolutions.backend.html">com.codesolutions.backend</a> &gt; BackendApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.755s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+<li>
+<a href="#">Standard error</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">0.755s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>06:16:20.587 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.codesolutions.backend.BackendApplicationTests]: BackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+06:16:21.040 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.codesolutions.backend.BackendApplication for test class com.codesolutions.backend.BackendApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-09-08T06:16:23.735Z  INFO 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.BackendApplicationTests      : Starting BackendApplicationTests using Java 24.0.2 with PID 4078153 (started by dev1 in /home/dev1/mpmt/backend)
+2025-09-08T06:16:23.744Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.BackendApplicationTests      : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-09-08T06:16:23.745Z  INFO 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.BackendApplicationTests      : The following 1 profile is active: &quot;test&quot;
+2025-09-08T06:16:26.848Z  INFO 4078153 --- [mpmt-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-08T06:16:26.990Z  INFO 4078153 --- [mpmt-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 125 ms. Found 6 JPA repository interfaces.
+2025-09-08T06:16:27.977Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-08T06:16:28.206Z  INFO 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-09-08T06:16:28.333Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-08T06:16:29.483Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-08T06:16:29.545Z  INFO 4078153 --- [mpmt-backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-08T06:16:30.105Z  INFO 4078153 --- [mpmt-backend] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:dev-db user=SA
+2025-09-08T06:16:30.109Z  INFO 4078153 --- [mpmt-backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-08T06:16:30.296Z  INFO 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-08T06:16:32.855Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-08T06:16:32.885Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists project_memberships cascade 
+Hibernate: drop table if exists project_memberships cascade 
+2025-09-08T06:16:32.896Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists projects cascade 
+Hibernate: drop table if exists projects cascade 
+2025-09-08T06:16:32.898Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists task_assignations cascade 
+Hibernate: drop table if exists task_assignations cascade 
+2025-09-08T06:16:32.899Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists task_history cascade 
+Hibernate: drop table if exists task_history cascade 
+2025-09-08T06:16:32.901Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists tasks cascade 
+Hibernate: drop table if exists tasks cascade 
+2025-09-08T06:16:32.903Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists users cascade 
+Hibernate: drop table if exists users cascade 
+2025-09-08T06:16:32.913Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table project_memberships (accepted_at timestamp(6), id bigint generated by default as identity, invited_at timestamp(6), invited_by bigint, project_id bigint not null, user_id bigint not null, role enum ('ADMIN','MEMBER','VIEWER') not null, primary key (id), unique (project_id, user_id))
+Hibernate: create table project_memberships (accepted_at timestamp(6), id bigint generated by default as identity, invited_at timestamp(6), invited_by bigint, project_id bigint not null, user_id bigint not null, role enum ('ADMIN','MEMBER','VIEWER') not null, primary key (id), unique (project_id, user_id))
+2025-09-08T06:16:32.934Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table projects (start_date date, created_at timestamp(6) not null, id bigint generated by default as identity, updated_at timestamp(6), description TEXT, name varchar(255) not null, primary key (id))
+Hibernate: create table projects (start_date date, created_at timestamp(6) not null, id bigint generated by default as identity, updated_at timestamp(6), description TEXT, name varchar(255) not null, primary key (id))
+2025-09-08T06:16:32.936Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table task_assignations (assigned_at timestamp(6) not null, task_id bigint not null, user_id bigint not null, primary key (task_id, user_id))
+Hibernate: create table task_assignations (assigned_at timestamp(6) not null, task_id bigint not null, user_id bigint not null, primary key (task_id, user_id))
+2025-09-08T06:16:32.938Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table task_history (changed_at timestamp(6) not null, changed_by bigint not null, id bigint generated by default as identity, task_id bigint not null, field varchar(255), new_value TEXT, old_value TEXT, primary key (id))
+Hibernate: create table task_history (changed_at timestamp(6) not null, changed_by bigint not null, id bigint generated by default as identity, task_id bigint not null, field varchar(255), new_value TEXT, old_value TEXT, primary key (id))
+2025-09-08T06:16:32.941Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table tasks (completed_date date, due_date date, created_at timestamp(6) not null, created_by bigint not null, id bigint generated by default as identity, project_id bigint not null, updated_at timestamp(6), description TEXT, name varchar(255) not null, priority enum ('HIGH','LOW','MEDIUM','URGENT') not null, status enum ('BLOCKED','DOING','DONE','TODO') not null, primary key (id))
+Hibernate: create table tasks (completed_date date, due_date date, created_at timestamp(6) not null, created_by bigint not null, id bigint generated by default as identity, project_id bigint not null, updated_at timestamp(6), description TEXT, name varchar(255) not null, priority enum ('HIGH','LOW','MEDIUM','URGENT') not null, status enum ('BLOCKED','DOING','DONE','TODO') not null, primary key (id))
+2025-09-08T06:16:32.944Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table users (created_at timestamp(6) not null, id bigint generated by default as identity, updated_at timestamp(6), username varchar(50) not null unique, email varchar(320) not null unique, password varchar(255) not null, primary key (id))
+Hibernate: create table users (created_at timestamp(6) not null, id bigint generated by default as identity, updated_at timestamp(6), username varchar(50) not null unique, email varchar(320) not null unique, password varchar(255) not null, primary key (id))
+2025-09-08T06:16:32.947Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists project_memberships add constraint FKoxuwr0xjvwsk8vjicgermqeyi foreign key (invited_by) references users
+Hibernate: alter table if exists project_memberships add constraint FKoxuwr0xjvwsk8vjicgermqeyi foreign key (invited_by) references users
+2025-09-08T06:16:32.985Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists project_memberships add constraint FKd90uwkxsbfhownoqpuw443iqf foreign key (project_id) references projects
+Hibernate: alter table if exists project_memberships add constraint FKd90uwkxsbfhownoqpuw443iqf foreign key (project_id) references projects
+2025-09-08T06:16:32.988Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists project_memberships add constraint FK7k1gs1r6ui8ol8oy49abdtutc foreign key (user_id) references users
+Hibernate: alter table if exists project_memberships add constraint FK7k1gs1r6ui8ol8oy49abdtutc foreign key (user_id) references users
+2025-09-08T06:16:32.990Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists task_assignations add constraint FKoo1dxsf696qslh1bih3g1p82v foreign key (task_id) references tasks
+Hibernate: alter table if exists task_assignations add constraint FKoo1dxsf696qslh1bih3g1p82v foreign key (task_id) references tasks
+2025-09-08T06:16:32.994Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists task_assignations add constraint FK7u93pqcox6255boaolatjqywa foreign key (user_id) references users
+Hibernate: alter table if exists task_assignations add constraint FK7u93pqcox6255boaolatjqywa foreign key (user_id) references users
+2025-09-08T06:16:32.997Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists task_history add constraint FK25h9b68g60qf4qske77bm7imb foreign key (changed_by) references users
+Hibernate: alter table if exists task_history add constraint FK25h9b68g60qf4qske77bm7imb foreign key (changed_by) references users
+2025-09-08T06:16:33.001Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists task_history add constraint FKjqraeud129avhcva579fhioj3 foreign key (task_id) references tasks
+Hibernate: alter table if exists task_history add constraint FKjqraeud129avhcva579fhioj3 foreign key (task_id) references tasks
+2025-09-08T06:16:33.003Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists tasks add constraint FK9dgm9t7wn4w3gh57h63g712lo foreign key (created_by) references users
+Hibernate: alter table if exists tasks add constraint FK9dgm9t7wn4w3gh57h63g712lo foreign key (created_by) references users
+2025-09-08T06:16:33.006Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists tasks add constraint FKsfhn82y57i3k9uxww1s007acc foreign key (project_id) references projects
+Hibernate: alter table if exists tasks add constraint FKsfhn82y57i3k9uxww1s007acc foreign key (project_id) references projects
+2025-09-08T06:16:33.016Z  INFO 4078153 --- [mpmt-backend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-08T06:16:33.718Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-09-08T06:16:35.596Z  WARN 4078153 --- [mpmt-backend] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-08T06:16:36.261Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:dev-db'
+2025-09-08T06:16:36.404Z  INFO 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.BackendApplicationTests      : Started BackendApplicationTests in 14.053 seconds (process running for 20.379)
+</pre>
+</span>
+</div>
+<div class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/home/dev1/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.6/17b32fd9f57deef02842f7f05abc4ad8127fe34e/byte-buddy-agent-1.17.6.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.3</a> at Sep 8, 2025, 6:16:49 AM</p>
+</div>
+</div>
+</body>
+</html>

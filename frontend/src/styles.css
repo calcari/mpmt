@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@plugin "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+
+/* Disable dark mode (unless a dark class is there) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@utility spacer {
+    flex:1;
+}
+
+@utility rflex {
+  @apply flex flex-row items-center;
+}
+
+@utility vflex {
+  @apply flex flex-col items-stretch;
+}
+
+@utility center {
+  @apply flex flex-col justify-center items-center;
+}
+
+@utility app-card {
+  @apply shadow-sm rounded-xl flex flex-col items-stretch p-4 gap-2 text-left;
+}
+
+@utility app-card-clickable {
+  @apply  hover:border-gray-400 hover:bg-gray-50 cursor-pointer transition-colors;
+}
+
+@utility app-card-draft {
+  @apply center border-2 border-dashed border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 hover:border-gray-400 hover:bg-gray-50 cursor-pointer transition-colors;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+.screen-shell {
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-timeline-event-opposite {
+  flex-grow:0.5;
+}

@@ -1,0 +1,34 @@
+# Déploiement en prod - Ne build rien - Faire juste docker compose -f docker-compose.prod.yml up
+# Fonctionne en local (app accessible ensuite sur localhost:8055)
+services:
+  mpmt-postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: mpmt
+      POSTGRES_USER: mpmt
+      POSTGRES_PASSWORD: mpmt
+    ports:
+      - "8077:5432" #Port 8077 : port réel accessible de l'exterieur
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    image: ghcr.io/calcari/mpmt/mpmt-backend:latest
+    ports:
+      - "8066:8080" #Port 8066 : port réel accessible de l'exterieur
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://mpmt-postgres:5432/mpmt
+      SPRING_DATASOURCE_USERNAME: mpmt
+      SPRING_DATASOURCE_PASSWORD: mpmt
+    depends_on:
+      - mpmt-postgres
+
+  frontend:
+    image: ghcr.io/calcari/mpmt/mpmt-frontend:latest
+    ports:
+      - "8055:80" #Port 8055 : port réel accessible de l'exterieur
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

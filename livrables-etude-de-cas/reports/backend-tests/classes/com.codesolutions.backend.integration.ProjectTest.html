@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ProjectTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ProjectTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.codesolutions.backend.integration.html">com.codesolutions.backend.integration</a> &gt; ProjectTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">10</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.964s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">addMemberToProject_AlreadyMember()</td>
+<td class="success">0.346s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addMemberToProject_InviteeNotFound()</td>
+<td class="success">0.059s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addMemberToProject_MissingRights()</td>
+<td class="success">0.026s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addMemberToProject_Success()</td>
+<td class="success">0.125s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createProject_Success()</td>
+<td class="success">0.059s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProjectMembers_NotMember()</td>
+<td class="success">0.024s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProjectMembers_Success()</td>
+<td class="success">0.121s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProject_NotMember()</td>
+<td class="success">0.017s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getProject_Success()</td>
+<td class="success">0.092s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getUserProjects_Success()</td>
+<td class="success">0.095s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2025-09-08T06:16:42.103Z  INFO 4078153 --- [mpmt-backend] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.codesolutions.backend.integration.ProjectTest]: ProjectTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-09-08T06:16:42.108Z  INFO 4078153 --- [mpmt-backend] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.codesolutions.backend.BackendApplication for test class com.codesolutions.backend.integration.ProjectTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-09-08T06:16:42.161Z  INFO 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.integration.ProjectTest      : Starting ProjectTest using Java 24.0.2 with PID 4078153 (started by dev1 in /home/dev1/mpmt/backend)
+2025-09-08T06:16:42.164Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.integration.ProjectTest      : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-09-08T06:16:42.164Z  INFO 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.integration.ProjectTest      : The following 1 profile is active: &quot;test&quot;
+2025-09-08T06:16:42.827Z  INFO 4078153 --- [mpmt-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-08T06:16:42.873Z  INFO 4078153 --- [mpmt-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 6 JPA repository interfaces.
+2025-09-08T06:16:43.973Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-09-08T06:16:43.985Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-08T06:16:43.989Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-09-08T06:16:44.048Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-09-08T06:16:44.051Z  INFO 4078153 --- [mpmt-backend] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1883 ms
+2025-09-08T06:16:44.088Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.config.UserIdMiddleware      : Filter 'userIdMiddleware' configured for use
+2025-09-08T06:16:44.193Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-08T06:16:44.200Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-08T06:16:44.240Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-08T06:16:44.248Z  INFO 4078153 --- [mpmt-backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-09-08T06:16:44.255Z  INFO 4078153 --- [mpmt-backend] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:dev-db user=SA
+2025-09-08T06:16:44.267Z  INFO 4078153 --- [mpmt-backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-09-08T06:16:44.271Z  INFO 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-08T06:16:44.748Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-08T06:16:44.755Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists project_memberships cascade 
+Hibernate: drop table if exists project_memberships cascade 
+2025-09-08T06:16:44.771Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists projects cascade 
+Hibernate: drop table if exists projects cascade 
+2025-09-08T06:16:44.778Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists task_assignations cascade 
+Hibernate: drop table if exists task_assignations cascade 
+2025-09-08T06:16:44.785Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists task_history cascade 
+Hibernate: drop table if exists task_history cascade 
+2025-09-08T06:16:44.786Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists tasks cascade 
+Hibernate: drop table if exists tasks cascade 
+2025-09-08T06:16:44.788Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : drop table if exists users cascade 
+Hibernate: drop table if exists users cascade 
+2025-09-08T06:16:44.789Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table project_memberships (accepted_at timestamp(6), id bigint generated by default as identity, invited_at timestamp(6), invited_by bigint, project_id bigint not null, user_id bigint not null, role enum ('ADMIN','MEMBER','VIEWER') not null, primary key (id), unique (project_id, user_id))
+Hibernate: create table project_memberships (accepted_at timestamp(6), id bigint generated by default as identity, invited_at timestamp(6), invited_by bigint, project_id bigint not null, user_id bigint not null, role enum ('ADMIN','MEMBER','VIEWER') not null, primary key (id), unique (project_id, user_id))
+2025-09-08T06:16:44.793Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table projects (start_date date, created_at timestamp(6) not null, id bigint generated by default as identity, updated_at timestamp(6), description TEXT, name varchar(255) not null, primary key (id))
+Hibernate: create table projects (start_date date, created_at timestamp(6) not null, id bigint generated by default as identity, updated_at timestamp(6), description TEXT, name varchar(255) not null, primary key (id))
+2025-09-08T06:16:44.795Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table task_assignations (assigned_at timestamp(6) not null, task_id bigint not null, user_id bigint not null, primary key (task_id, user_id))
+Hibernate: create table task_assignations (assigned_at timestamp(6) not null, task_id bigint not null, user_id bigint not null, primary key (task_id, user_id))
+2025-09-08T06:16:44.796Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table task_history (changed_at timestamp(6) not null, changed_by bigint not null, id bigint generated by default as identity, task_id bigint not null, field varchar(255), new_value TEXT, old_value TEXT, primary key (id))
+Hibernate: create table task_history (changed_at timestamp(6) not null, changed_by bigint not null, id bigint generated by default as identity, task_id bigint not null, field varchar(255), new_value TEXT, old_value TEXT, primary key (id))
+2025-09-08T06:16:44.799Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table tasks (completed_date date, due_date date, created_at timestamp(6) not null, created_by bigint not null, id bigint generated by default as identity, project_id bigint not null, updated_at timestamp(6), description TEXT, name varchar(255) not null, priority enum ('HIGH','LOW','MEDIUM','URGENT') not null, status enum ('BLOCKED','DOING','DONE','TODO') not null, primary key (id))
+Hibernate: create table tasks (completed_date date, due_date date, created_at timestamp(6) not null, created_by bigint not null, id bigint generated by default as identity, project_id bigint not null, updated_at timestamp(6), description TEXT, name varchar(255) not null, priority enum ('HIGH','LOW','MEDIUM','URGENT') not null, status enum ('BLOCKED','DOING','DONE','TODO') not null, primary key (id))
+2025-09-08T06:16:44.801Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : create table users (created_at timestamp(6) not null, id bigint generated by default as identity, updated_at timestamp(6), username varchar(50) not null unique, email varchar(320) not null unique, password varchar(255) not null, primary key (id))
+Hibernate: create table users (created_at timestamp(6) not null, id bigint generated by default as identity, updated_at timestamp(6), username varchar(50) not null unique, email varchar(320) not null unique, password varchar(255) not null, primary key (id))
+2025-09-08T06:16:44.803Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists project_memberships add constraint FKoxuwr0xjvwsk8vjicgermqeyi foreign key (invited_by) references users
+Hibernate: alter table if exists project_memberships add constraint FKoxuwr0xjvwsk8vjicgermqeyi foreign key (invited_by) references users
+2025-09-08T06:16:44.816Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists project_memberships add constraint FKd90uwkxsbfhownoqpuw443iqf foreign key (project_id) references projects
+Hibernate: alter table if exists project_memberships add constraint FKd90uwkxsbfhownoqpuw443iqf foreign key (project_id) references projects
+2025-09-08T06:16:44.823Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists project_memberships add constraint FK7k1gs1r6ui8ol8oy49abdtutc foreign key (user_id) references users
+Hibernate: alter table if exists project_memberships add constraint FK7k1gs1r6ui8ol8oy49abdtutc foreign key (user_id) references users
+2025-09-08T06:16:44.829Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists task_assignations add constraint FKoo1dxsf696qslh1bih3g1p82v foreign key (task_id) references tasks
+Hibernate: alter table if exists task_assignations add constraint FKoo1dxsf696qslh1bih3g1p82v foreign key (task_id) references tasks
+2025-09-08T06:16:44.839Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists task_assignations add constraint FK7u93pqcox6255boaolatjqywa foreign key (user_id) references users
+Hibernate: alter table if exists task_assignations add constraint FK7u93pqcox6255boaolatjqywa foreign key (user_id) references users
+2025-09-08T06:16:44.851Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists task_history add constraint FK25h9b68g60qf4qske77bm7imb foreign key (changed_by) references users
+Hibernate: alter table if exists task_history add constraint FK25h9b68g60qf4qske77bm7imb foreign key (changed_by) references users
+2025-09-08T06:16:44.863Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists task_history add constraint FKjqraeud129avhcva579fhioj3 foreign key (task_id) references tasks
+Hibernate: alter table if exists task_history add constraint FKjqraeud129avhcva579fhioj3 foreign key (task_id) references tasks
+2025-09-08T06:16:44.876Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists tasks add constraint FK9dgm9t7wn4w3gh57h63g712lo foreign key (created_by) references users
+Hibernate: alter table if exists tasks add constraint FK9dgm9t7wn4w3gh57h63g712lo foreign key (created_by) references users
+2025-09-08T06:16:44.885Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : alter table if exists tasks add constraint FKsfhn82y57i3k9uxww1s007acc foreign key (project_id) references projects
+Hibernate: alter table if exists tasks add constraint FKsfhn82y57i3k9uxww1s007acc foreign key (project_id) references projects
+2025-09-08T06:16:44.895Z  INFO 4078153 --- [mpmt-backend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-08T06:16:45.457Z  WARN 4078153 --- [mpmt-backend] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-08T06:16:46.168Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:dev-db'
+2025-09-08T06:16:46.285Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.config.UserIdMiddleware      : Filter 'userIdMiddleware' configured for use
+2025-09-08T06:16:46.285Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2025-09-08T06:16:46.286Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-09-08T06:16:46.287Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2025-09-08T06:16:46.372Z  INFO 4078153 --- [mpmt-backend] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 42855 (http) with context path '/'
+2025-09-08T06:16:46.386Z  INFO 4078153 --- [mpmt-backend] [    Test worker] c.c.backend.integration.ProjectTest      : Started ProjectTest in 4.265 seconds (process running for 30.361)
+2025-09-08T06:16:46.629Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=?
+2025-09-08T06:16:46.702Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+2025-09-08T06:16:46.708Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:46.718Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.email=?
+2025-09-08T06:16:46.725Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+Hibernate: select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+2025-09-08T06:16:46.783Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=?
+2025-09-08T06:16:46.812Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+Hibernate: select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+2025-09-08T06:16:46.821Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id where p1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id where p1_0.id=?
+2025-09-08T06:16:46.830Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+2025-09-08T06:16:46.832Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:46.834Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:46.836Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:46.937Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+Hibernate: select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+2025-09-08T06:16:47.000Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select p1_0.id,p1_0.created_at,p1_0.description,m1_0.project_id,m1_0.id,m1_0.accepted_at,m1_0.invited_at,m1_0.invited_by,m1_0.role,m1_0.user_id,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 join project_memberships m1_0 on p1_0.id=m1_0.project_id where m1_0.user_id=?
+Hibernate: select p1_0.id,p1_0.created_at,p1_0.description,m1_0.project_id,m1_0.id,m1_0.accepted_at,m1_0.invited_at,m1_0.invited_by,m1_0.role,m1_0.user_id,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 join project_memberships m1_0 on p1_0.id=m1_0.project_id where m1_0.user_id=?
+2025-09-08T06:16:47.017Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join users u1_0 on u1_0.id=pm1_0.user_id where u1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join users u1_0 on u1_0.id=pm1_0.user_id where u1_0.id=?
+2025-09-08T06:16:47.025Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:47.069Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+Hibernate: select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+2025-09-08T06:16:47.076Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+2025-09-08T06:16:47.095Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select t1_0.project_id,t1_0.id,t1_0.completed_date,t1_0.created_at,t1_0.created_by,t1_0.description,t1_0.due_date,t1_0.name,t1_0.priority,t1_0.status,t1_0.updated_at from tasks t1_0 where t1_0.project_id=?
+Hibernate: select t1_0.project_id,t1_0.id,t1_0.completed_date,t1_0.created_at,t1_0.created_by,t1_0.description,t1_0.due_date,t1_0.name,t1_0.priority,t1_0.status,t1_0.updated_at from tasks t1_0 where t1_0.project_id=?
+2025-09-08T06:16:47.099Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:47.183Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=?
+2025-09-08T06:16:47.187Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+2025-09-08T06:16:47.191Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:47.196Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.email=?
+2025-09-08T06:16:47.266Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=?
+Hibernate: select pm1_0.id,pm1_0.accepted_at,pm1_0.invited_at,pm1_0.invited_by,pm1_0.project_id,pm1_0.role,pm1_0.user_id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=?
+2025-09-08T06:16:47.271Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.created_at,p1_0.description,p1_0.name,p1_0.start_date,p1_0.updated_at from projects p1_0 where p1_0.id=?
+2025-09-08T06:16:47.275Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:47.282Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.email=?
+2025-09-08T06:16:47.289Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+Hibernate: select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+2025-09-08T06:16:47.301Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : insert into project_memberships (accepted_at,invited_at,invited_by,project_id,role,user_id,id) values (?,?,?,?,?,?,default)
+Hibernate: insert into project_memberships (accepted_at,invited_at,invited_by,project_id,role,user_id,id) values (?,?,?,?,?,?,default)
+2025-09-08T06:16:47.354Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.username from users u1_0 where u1_0.id=?
+2025-09-08T06:16:47.363Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : insert into projects (created_at,description,name,start_date,updated_at,id) values (?,?,?,?,?,default)
+Hibernate: insert into projects (created_at,description,name,start_date,updated_at,id) values (?,?,?,?,?,default)
+2025-09-08T06:16:47.378Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : insert into project_memberships (accepted_at,invited_at,invited_by,project_id,role,user_id,id) values (?,?,?,?,?,?,default)
+Hibernate: insert into project_memberships (accepted_at,invited_at,invited_by,project_id,role,user_id,id) values (?,?,?,?,?,?,default)
+2025-09-08T06:16:47.407Z DEBUG 4078153 --- [mpmt-backend] [    Test worker] org.hibernate.SQL                        : select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+Hibernate: select pm1_0.id from project_memberships pm1_0 left join projects p1_0 on p1_0.id=pm1_0.project_id left join users u1_0 on u1_0.id=pm1_0.user_id where p1_0.id=? and u1_0.id=? fetch first ? rows only
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.3</a> at Sep 8, 2025, 6:16:49 AM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaskAssignation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">backend</a> &gt; <a href="index.source.html" class="el_package">com.codesolutions.backend.entities</a> &gt; <span class="el_source">TaskAssignation.java</span></div><h1>TaskAssignation.java</h1><pre class="source lang-java linenums">package com.codesolutions.backend.entities;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+
+
+@Entity
+@Table(name = &quot;task_assignations&quot;)
+@Data @NoArgsConstructor
+public class TaskAssignation {
+
+    @EmbeddedId
+    private TaskAssignationKey id;
+
+    @MapsId(&quot;taskId&quot;) //Nécessaire pour l'ORM
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;task_id&quot;, nullable = false)
+    private Task task;
+
+    @MapsId(&quot;userId&quot;) //Nécessaire pour l'ORM
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;user_id&quot;, nullable = false)
+    private User user;
+    
+    @CreationTimestamp
+    @Column(nullable = false)
+    private LocalDateTime assignedAt;
+
+<span class="fc" id="L36">    public TaskAssignation(Task task, User user) {</span>
+<span class="fc" id="L37">        this.task = task;</span>
+<span class="fc" id="L38">        this.user = user;</span>
+<span class="fc" id="L39">        this.id = new TaskAssignationKey(task.getId(), user.getId());</span>
+<span class="fc" id="L40">    }</span>
+
+    //Objet représentant la clé composite.
+    @Embeddable
+<span class="fc" id="L44">    public static record TaskAssignationKey(</span>
+            @Column(name = &quot;task_id&quot;) Long taskId,
+            @Column(name = &quot;user_id&quot;) Long userId
+    ) implements Serializable {}
+
+} 
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

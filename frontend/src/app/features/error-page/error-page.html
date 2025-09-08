@@ -1,0 +1,15 @@
+<div class="screen-shell items-center justify-center p-6">
+    <app-logo class="mb-10" iconClass="text-5xl" textClass="text-5xl"/>
+    <div class="w-full max-w-xl text-center">
+        <h1 class="text-2xl font-semibold mb-2">Une erreur est survenue</h1>
+
+        @if (this.status) {
+        <p class="text-3xl font-bold mb-1">{{ this.status }}</p>
+        }
+        @if (this.message) {
+        <p class="mb-4 font-mono">{{ this.message }}</p>
+        }
+
+        <p-button label="Accueil" routerLink="/home" styleClass="mt-4"></p-button>
+    </div>
+</div>
